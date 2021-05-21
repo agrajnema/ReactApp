@@ -10,14 +10,17 @@ export const todos = (state = [], action) => {
                 text,
                 isCompleted: false
             }
-            return state.concat(newTodo);
+            
+            state = state.concat(newTodo);
+            console.log(state);
+            return state;
         }
         case(REMOVE_TODO): {
+            console.log('here');
             const {text} = payload;
             return state.filter(todo => todo.text !== text);
         }
-        default: {
+        default: 
             return state;
-        }
     }
 }

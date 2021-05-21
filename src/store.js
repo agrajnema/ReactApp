@@ -4,4 +4,4 @@ import {todos} from './todos/reducers';
 const reducers = {todos};
 const rootReducer = combineReducers(reducers);
 
-export const configureStore = () => createStore(rootreducer);
+export const configureStore = () => createStore(rootReducer);

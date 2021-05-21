@@ -16,10 +16,10 @@ const NewTodoForm = ({todos, onCreatePressed}) => {
       ></input>
       <button className="new-todo-button"
       onClick={() => {
-          const isDuplicateText = todos.some(todo => todo.text == inputValue);
-          if(!isDuplicateText){
-          onCreatepressed(inputValue);
-          setInputValue('');
+          const isDuplicateText = todos.some(todo => todo.text === inputValue);
+          if(!isDuplicateText) {
+            onCreatePressed(inputValue);
+            setInputValue('');
           }
       }}>Create Todo</button>
     </div>
@@ -27,12 +27,12 @@ const NewTodoForm = ({todos, onCreatePressed}) => {
 };
 
 const mapStateToProps = state => ({
-    todos = state.todos
+    todos: state.todos
 });
 
 const mapDispatchToProps = dispatch => ({
-    onCreatePressed = text => dispatch(text)
+    onCreatePressed: text => dispatch(createTodo(text))
 });
 
 
-export default connect()(NewTodoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);
